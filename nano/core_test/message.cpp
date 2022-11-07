@@ -465,3 +465,14 @@ TEST (message, asc_pull_ack_serialization_account_info)
 
 	ASSERT_TRUE (nano::at_end (stream));
 }
+
+TEST (message, bulk_push_to_string)
+{
+	nano::work_thresholds work_threshold = nano::work_thresholds (0, 0, 0);
+	nano::network_constants network_constants = nano::network_constants (work_threshold, nano::networks::nano_dev_network);
+	nano::bulk_push bulk_push = nano::bulk_push (network_constants);
+
+	std::string expected_output = "NetID: 5241(dev), VerMaxUsingMin: 19/19/18, MsgType: 7(bulk_push), Extensions: 0000";
+
+	ASSERT_EQ (bulk_push.to_string (), expected_output);
+}

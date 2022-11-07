@@ -1220,6 +1220,11 @@ void nano::bulk_push::visit (nano::message_visitor & visitor_a) const
 	visitor_a.bulk_push (*this);
 }
 
+std::string nano::bulk_push::to_string () const
+{
+	return header.to_string ();
+}
+
 /*
  * telemetry_req
  */

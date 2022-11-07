@@ -339,6 +339,7 @@ public:
 	void serialize (nano::stream &) const override;
 	bool deserialize (nano::stream &);
 	void visit (nano::message_visitor &) const override;
+	std::string to_string () const;
 };
 
 class node_id_handshake final : public message
